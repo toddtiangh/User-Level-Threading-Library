@@ -12,18 +12,12 @@
 #include <ucontext.h>
 #include <sys/ucontext.h>
 
-/* You can support more threads. At least support this many. */
 #define MAX_THREADS 128
 
-/* Your stack should be this many bytes in size */
 #define THREAD_STACK_SIZE 32767
 
-/* Number of microseconds between scheduling events */
 #define SCHEDULER_INTERVAL_USECS (50 * 1000)
 
-/* Extracted from private libc headers. These are not part of the public
- * interface for jmp_buf.
- */
 #define JB_RBX 0
 #define JB_RBP 1
 #define JB_R12 2
@@ -33,8 +27,7 @@
 #define JB_RSP 6
 #define JB_PC 7
 #define REG_RAX 15
-/* thread_status identifies the current state of a thread. You can add, rename,
- * or delete these values. This is only a suggestion. */
+
 enum thread_status
 {
 	TS_EXITED,
@@ -43,9 +36,6 @@ enum thread_status
 	TS_STANDBY
 };
 
-/* The thread control block stores information about a thread. You will
- * need one of this per thread.
- */
 struct thread_control_block {
 	pthread_t thread_id;
 	void* stack;
