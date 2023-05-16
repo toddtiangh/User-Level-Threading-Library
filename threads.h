@@ -1,8 +1,5 @@
 #ifndef __THREADS__
 #define __THREADS__
-/*
- * This file is derived from code provided by Prof. Egele
- */
 
 /*static unsigned long int ptr_demangle(unsigned long int p)
 {
